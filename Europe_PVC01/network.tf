@@ -1,9 +1,11 @@
 
 # IP
-#resource "google_compute_address" "static-vm0" {
-#  name = "static-ip-vm0"
-#  address_type = "EXTERNAL"
-#}
+resource "google_compute_address" "static-vm00" {
+  name         = "static-ip-vm00"
+  address_type = "EXTERNAL"
+  region = "europe-central2"
+}
+
 
 # Create a VPC network
 resource "google_compute_network" "vpc_europe_01" {
@@ -37,6 +39,9 @@ resource "google_compute_firewall" "default_ingress" {
   allow {
     protocol = "tcp"
     ports    = ["22"]
+  }
+  allow {
+    protocol = "icmp"
   }
 }
 
