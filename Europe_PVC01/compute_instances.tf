@@ -25,7 +25,7 @@ module "vm01" {
 
   image   = "debian-cloud/debian-11"
   network = google_compute_network.vpc_europe_01.name
-  subnet  = google_compute_subnetwork.subnet_e01.name
+  subnet  = google_compute_subnetwork.subnet_e02.name
   nat_ip         =  "null" #google_compute_address.static-vm00.address
   network_tier   = "STANDARD"
   startup_script = "echo hi > /test.txt"
