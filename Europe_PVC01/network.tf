@@ -21,6 +21,14 @@ resource "google_compute_subnetwork" "subnet_e01" {
   network       = google_compute_network.vpc_europe_01.self_link
 }
 
+# Create a subnet in the VPC with custom range
+resource "google_compute_subnetwork" "subnet_e02" {
+  name          = "subnetwork-vpc-europe02"
+  ip_cidr_range = "10.84.2.0/24"
+  region        = "europe-central2"
+  network       = google_compute_network.vpc_europe_01.self_link
+}
+
 ### Route 
 resource "google_compute_route" "route_table_vpc_europe_01" {
   name             = "internet-access"
